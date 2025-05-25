@@ -1,48 +1,54 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import './App.css';
-
-import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
-const texts = ['TENTANG KOPI', 'TENTANG KOPI'];
+const texts = ["TENTANG KOPI", "TENTANG KOPI"];
 
 const Marquee = () => {
   const marqueeRefs = useRef<HTMLDivElement[]>([]);
   const welcomeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // marquee gerak
     marqueeRefs.current.forEach((el) => {
-      const inner = el.querySelector('.marquee-inner') as HTMLDivElement;
+      const inner = el.querySelector(".marquee-inner") as HTMLDivElement;
+
+      // Clone child untuk seamless loop
+      const clone = inner.innerHTML;
+      inner.innerHTML += clone;
 
       gsap.to(inner, {
-        xPercent: -100,
-        y: -30,
+        xPercent: -50,
         repeat: -1,
+        ease: "linear",
         duration: 20,
-        ease: 'linear'
       });
     });
 
-    // animasi scramble text
     if (welcomeRef.current) {
       gsap.to(welcomeRef.current, {
         duration: 3,
         scrambleText: {
           text: "WELCOME TO OUR WEBSITE",
           chars: "upperCase",
-          revealDelay: 0.5
+          revealDelay: 0.5,
         },
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       });
     }
   }, []);
 
   return (
     <div>
-      <div className="welcome-text" ref={welcomeRef}>LOADING...</div>
+      <div className="text-container" style={{ top: "40%" }}>
+        <div className="welcome-text" ref={welcomeRef}>
+          LOADING...
+        </div>
+        <div className="sub-welcome-text">
+          Tugas Ujian Praktek Sekolah "Tentang Kopi☕"
+        </div>
+      </div>
 
       <div className="marquee-wrapper">
         {texts.map((text, i) => (
@@ -51,13 +57,13 @@ const Marquee = () => {
             ref={(el) => el && (marqueeRefs.current[i] = el)}
             className={`marquee-container marquee-container-${i}`}
             style={{
-              backgroundColor: i % 2 === 0 ? '#2e0e00' : '#1a0b00',
-              transform: `rotate(${i === 0 ? '-4deg' : '4deg'})`,
-              zIndex: 10 - i
+              backgroundColor: "#270f03",
+              transform: `rotate(${i === 0 ? "-4deg" : "4deg"})`,
+              zIndex: 10 - i,
             }}
           >
             <div className="marquee-inner">
-              {[...Array(30)].map((_, j) => (
+              {[...Array(20)].map((_, j) => (
                 <span key={j} className={`marquee-text marquee-text-${i}`}>
                   {text}
                 </span>

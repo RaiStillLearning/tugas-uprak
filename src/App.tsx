@@ -1,16 +1,15 @@
-import React from 'react'
-import './App.css'
-import Marquee from './Marquee'
-
-
+import React from "react";
+import "./App.css";
+import Marquee from "./pages/Marquee";
 
 function App() {
-
   return (
-    <>
-    <Marquee />
-    </>
-  )
+    <div>
+      <section className="marquee-section">
+        <Marquee />
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;
