@@ -122,3 +122,13 @@ body {
     top: 35%;
   }
 }
+
+/* about */
+.container-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.container-cards {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
