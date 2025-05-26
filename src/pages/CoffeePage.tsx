@@ -21,7 +21,7 @@ const CoffeePage = () => {
   useEffect(() => {
     async function fetchCoffee() {
       try {
-        const res = await axios.get("http://localhost:3000/api/coffee");
+        const res = await axios.get("https://uprak-be.vercel.app/api/coffee");
         setCoffeeList(res.data);
       } catch (err) {
         console.log(err);
