@@ -9,25 +9,25 @@ const cardsData = [
   {
     color: "#FF6B6B",
     title: "Raka Arkana",
-    image: { imageRaka },
+    image: imageRaka, // langsung assign gambar
     description: "Web Developer from Mampang.",
   },
   {
     color: "#4ECDC4",
     title: "Shadik Sardi",
-    image: { sadikIMG },
+    image: sadikIMG,
     description: "UI/UX Designer from Meruyung.",
   },
   {
     color: "#556270",
     title: "Raffi Ramadhan",
-    image: { masGatan },
+    image: masGatan,
     description: "adit tolongin dit.",
   },
   {
     color: "#FF6B6B",
     title: "Affan Akbar",
-    image: { sultan },
+    image: sultan,
     description: "i'm affan.",
   },
 ];
@@ -153,7 +153,7 @@ const About = () => {
               }}
             >
               <img
-                src={image.masGatan}
+                src={image}
                 alt={title}
                 style={{
                   width: "180px",
