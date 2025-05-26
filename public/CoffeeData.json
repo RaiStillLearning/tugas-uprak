@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "1",
+    "name": "Espresso",
+    "price": 25000,
+    "imageUrl": "/images/espresso.jpg"
+  },
+  {
+    "_id": "2",
+    "name": "Latte",
+    "price": 22000,
+    "imageUrl": "/images/latte.jpg"
+  },
+  {
+    "_id": "3",
+    "name": "kopi-kopian",
+    "price": 50000,
+    "imageUrl": "/images/latte.jpg"
+  },
+  {
+    "_id": "3",
+    "name": "Latte",
+    "price": 50000,
+    "imageUrl": "/images/latte.jpg"
+  },
+  {
+    "_id": "3",
+    "name": "Latte",
+    "price": 50000,
+    "imageUrl": "/images/latte.jpg"
+  }
+]

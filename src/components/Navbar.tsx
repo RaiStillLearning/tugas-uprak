@@ -7,6 +7,12 @@ const Navbar = () => {
   const collapseRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef(false);
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Coffee", path: "/coffee" },
+  ];
+
   useEffect(() => {
     if (!navRef.current || !collapseRef.current) return;
 
@@ -110,13 +116,10 @@ const Navbar = () => {
           id="navbarNav"
         >
           <ul className="navbar-nav">
-            {["Home", "About"].map((text) => (
-              <li className="nav-item" key={text}>
-                <Link
-                  className="nav-link text-white"
-                  to={text === "Home" ? "/" : "/about"}
-                >
-                  {text}
+            {navLinks.map((link) => (
+              <li className="nav-item" key={link.name}>
+                <Link className="nav-link text-white" to={link.path}>
+                  {link.name}
                 </Link>
               </li>
             ))}

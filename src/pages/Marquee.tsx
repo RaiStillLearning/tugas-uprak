@@ -48,6 +48,11 @@ const Marquee = () => {
         <div className="sub-welcome-text">
           Tugas Ujian Praktek Sekolah "Tentang Kopi☕"
         </div>
+        <div className="footer-section py-5">
+          <div className="footer-text">
+            <p>&copy; Copyright 2025 - Ujian Praktek</p>
+          </div>
+        </div>
       </div>
 
       <div className="marquee-wrapper">
