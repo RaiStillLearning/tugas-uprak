@@ -110,7 +110,7 @@ const Navbar = () => {
           id="navbarNav"
         >
           <ul className="navbar-nav">
-            {["Home", "About"].map((text, i) => (
+            {["Home", "About"].map((text) => (
               <li className="nav-item" key={text}>
                 <Link
                   className="nav-link text-white"

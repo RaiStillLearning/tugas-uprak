@@ -115,7 +115,9 @@ const About = () => {
           return (
             <div
               key={i}
-              ref={(el) => (cardsRef.current[i] = el)}
+              ref={(el) => {
+                cardsRef.current[i] = el;
+              }}
               onMouseEnter={() => setHoverIndex(i)}
               onMouseLeave={() => setHoverIndex(null)}
               style={{

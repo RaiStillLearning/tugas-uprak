@@ -54,7 +54,9 @@ const Marquee = () => {
         {texts.map((text, i) => (
           <div
             key={i}
-            ref={(el) => el && (marqueeRefs.current[i] = el)}
+            ref={(el) => {
+              if (el) marqueeRefs.current[i] = el;
+            }}
             className={`marquee-container marquee-container-${i}`}
             style={{
               backgroundColor: "#270f03",
