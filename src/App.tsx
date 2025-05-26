@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Marquee from "./pages/Marquee";
 import AboutPage from "./pages/AboutPage";
-import "./App.css"; // Import your CSS styles
+import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Marquee />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
