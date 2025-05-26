@@ -1,29 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import ImageAll from "./../../public/images/Profile-PNG-Photo.png";
 
 const cardsData = [
   {
     color: "#FF6B6B",
     title: "Raka Arkana",
-    image: "../../public/images/Profile-PNG-Photo.png",
+    image: { ImageAll },
     description: "Software Engineer from Jakarta.",
   },
   {
     color: "#4ECDC4",
     title: "Sadik Shardi",
-    image: "../../public/images/Profile-PNG-Photo.png",
+    image: { ImageAll },
     description: "UI/UX Designer from Bandung.",
   },
   {
     color: "#556270",
     title: "Raffi Ramadhan",
-    image: "../../public/images/Profile-PNG-Photo.png",
+    image: { ImageAll },
     description: "Product Manager from Surabaya.",
   },
   {
     color: "#FF6B6B",
     title: "Affan Akbar",
-    image: "../../public/images/Profile-PNG-Photo.png",
+    image: { ImageAll },
     description: "Digital Marketer from Bali.",
   },
 ];
@@ -149,7 +150,7 @@ const About = () => {
               }}
             >
               <img
-                src={image}
+                src={image.ImageAll}
                 alt={title}
                 style={{
                   width: "180px",
