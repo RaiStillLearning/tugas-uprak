@@ -132,3 +132,24 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.coffee-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .coffee-cart-container {
+    flex-direction: column;
+  }
+
+  /* Biar cart sidebar juga full width di mobile */
+  .coffee-cart-container > div:last-child {
+    width: 100% !important;
+    position: static !important; /* biar gak sticky di mobile */
+    margin-top: 24px;
+  }
+}

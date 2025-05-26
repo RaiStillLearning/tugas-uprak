@@ -1,65 +1,39 @@
-// CartSidebar.tsx
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
 interface Coffee {
+  _id: string;
   name: string;
   price: number;
+  imageUrl: string;
 }
 
-interface CartItem {
-  _id: string;
-  quantity: number;
-  coffeeId: Coffee;
-}
-
-const CartSidebar = () => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchCart() {
-      try {
-        const res = await axios.get("http://localhost:3000/api/cart");
-        setCart(res.data);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to fetch cart data");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchCart();
-  }, []);
-
-  if (loading) return <p>Loading cart...</p>;
-  if (error) return <p>{error}</p>;
+const CartSidebar = ({ cartItems }: { cartItems: Coffee[] }) => {
+  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <div
       style={{
-        width: "280px",
-        background: "#f8f9fa",
-        padding: "16px",
+        backgroundColor: "#f5f5f5",
         borderRadius: "12px",
+        padding: "16px",
         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+        minHeight: "200px",
       }}
     >
-      <h4>Your Cart</h4>
-      {cart.length === 0 ? (
-        <p>Cart is empty</p>
+      <h4 className="mb-3">🛒 Your Cart</h4>
+      {cartItems.length === 0 ? (
+        <p className="text-muted">Cart masih kosong.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {cart.map((item) => (
-            <li key={item._id} style={{ marginBottom: "12px" }}>
-              <strong>{item.coffeeId.name}</strong>
-              <br />
-              Rp {item.coffeeId.price.toLocaleString()} x {item.quantity}
+        <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+          {cartItems.map((item, index) => (
+            <li key={index} style={{ marginBottom: 10 }}>
+              <strong>{item.name}</strong> — Rp {item.price.toLocaleString()}
             </li>
           ))}
         </ul>
       )}
+      <hr />
+      <p>
+        <strong>Total:</strong> Rp {total.toLocaleString()}
+      </p>
     </div>
   );
 };
